@@ -1,0 +1,12 @@
+;https://www.reddit.com/r/AutoHotkey/comments/d9obke/i_cant_get_ahk_to_disable_the_native_hotkeys/
+;https://www.autohotkey.com/boards/viewtopic.php?f=13&t=65573&p=281771&hilit=hyper+key#p281771
+
+
+
+#^!Shift::
+#^+Alt::
+#!+Ctrl::
+^!+LWin::
+^!+RWin::
+Send {Blind}{vk07}
+return

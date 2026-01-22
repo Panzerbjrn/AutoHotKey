@@ -11,7 +11,6 @@ Numpad0:: Click('R')
 
 KeysToBroadcast := [
     "Numpad1",
-    "^Numpad1",
     "Numpad2",
     "Numpad3",
     "Numpad4",
@@ -24,7 +23,7 @@ KeysToBroadcast := [
     "l",
     "Space",
     "^F11",
-    "!F12"
+    "^F12"
 ]
 WowIDs := WinGetList("World of Warcraft")
 for k in KeysToBroadcast {

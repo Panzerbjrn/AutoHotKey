@@ -11,6 +11,7 @@ Numpad0:: Click('R')
 
 KeysToBroadcast := [
     "Numpad1",
+    "^Numpad1",
     "Numpad2",
     "Numpad3",
     "Numpad4",

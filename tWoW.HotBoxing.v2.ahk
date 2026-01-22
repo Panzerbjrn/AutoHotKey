@@ -17,6 +17,7 @@ KeysToBroadcast := [
     "Numpad5",
     "Numpad6",
     "Numpad7",
+    "^Numpad7",
     "Numpad8",
     "Numpad9",
     "b",

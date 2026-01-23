@@ -32,12 +32,58 @@ for k in KeysToBroadcast {
     Hotkey("~*" k, (hk) => GenericBroadcast(hk))
 }
 GenericBroadcast(HotkeyName) {
+    ; Get the actual modifiers pressed at this moment
+    actualMods := ""
+    if GetKeyState("Control", "P")
+        actualMods .= "^"
+    if GetKeyState("Alt", "P")
+        actualMods .= "!"
+    if GetKeyState("Shift", "P")
+        actualMods .= "+"
+    if GetKeyState("LWin", "P") || GetKeyState("RWin", "P")
+        actualMods .= "#"
+
+    ; Extract the base key (without prefixes and modifiers)
     CleanKey := RegExReplace(HotkeyName, "[~\*]")
-	modifiers := RegExReplace(CleanKey, "[^\^!#+]")
     WaitKey := RegExReplace(CleanKey, "[\^!#+]")
+
+    ; Wait for the main key to be released
     KeyWait(WaitKey)
+
+    ; Wait for all modifier keys to be released
+    if InStr(actualMods, "^")
+        KeyWait("Control")
+    if InStr(actualMods, "!")
+        KeyWait("Alt")
+    if InStr(actualMods, "+")
+        KeyWait("Shift")
+    if InStr(actualMods, "#")
+        KeyWait("LWin")
+
+    ; Send the actual key combo that was pressed
+    ; Build the key sequence with explicit modifier down/up
+    keySequence := ""
+    if InStr(actualMods, "^")
+        keySequence .= "{Control down}"
+    if InStr(actualMods, "!")
+        keySequence .= "{Alt down}"
+    if InStr(actualMods, "+")
+        keySequence .= "{Shift down}"
+    if InStr(actualMods, "#")
+        keySequence .= "{LWin down}"
+
+    keySequence .= "{" WaitKey "}"
+
+    if InStr(actualMods, "#")
+        keySequence .= "{LWin up}"
+    if InStr(actualMods, "+")
+        keySequence .= "{Shift up}"
+    if InStr(actualMods, "!")
+        keySequence .= "{Alt up}"
+    if InStr(actualMods, "^")
+        keySequence .= "{Control up}"
+
     for id in WowIDs {
-;        ControlSend("{Blind}{" CleanKey "}", , "ahk_id " id)
-         ControlSend("{Blind}" modifiers "{" WaitKey "}", , "ahk_id " id)
+        ControlSend(keySequence, , "ahk_id " id)
     }
 }

@@ -36,6 +36,7 @@ GenericBroadcast(HotkeyName) {
     WaitKey := RegExReplace(CleanKey, "[\^!#+]")
     KeyWait(WaitKey)
     for id in WowIDs {
-        ControlSend("{Blind}{" CleanKey "}", , "ahk_id " id)
+;        ControlSend("{Blind}{" CleanKey "}", , "ahk_id " id)
+         ControlSend("{Blind}" modifiers "{" WaitKey "}", , "ahk_id " id)
     }
 }

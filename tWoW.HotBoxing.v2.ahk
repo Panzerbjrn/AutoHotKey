@@ -32,6 +32,7 @@ for k in KeysToBroadcast {
 }
 GenericBroadcast(HotkeyName) {
     CleanKey := RegExReplace(HotkeyName, "[~\*]")
+	modifiers := RegExReplace(CleanKey, "[^\^!#+]")
     WaitKey := RegExReplace(CleanKey, "[\^!#+]")
     KeyWait(WaitKey)
     for id in WowIDs {

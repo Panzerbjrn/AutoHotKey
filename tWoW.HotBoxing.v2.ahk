@@ -24,8 +24,15 @@ KeysToBroadcast := [
     "b",
     "l",
     "Space",
+    "^F10",
     "^F11",
-    "^F12"
+    "^F12",
+    "!F10",
+    "!F11",
+    "!F12",
+    "F10",
+    "F11",
+    "F12"
 ]
 WowIDs := WinGetList("World of Warcraft")
 for k in KeysToBroadcast {

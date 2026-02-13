@@ -21,7 +21,6 @@ KeysToBroadcast := [
     "^Numpad7",
     "Numpad8",
     "Numpad9",
-    "b",
     "l",
     "Space",
     "^F10",

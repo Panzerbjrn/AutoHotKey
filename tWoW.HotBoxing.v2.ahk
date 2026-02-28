@@ -3,18 +3,20 @@
 
 SendMode("Event")
 SetKeyDelay(10, 10)
+CoordMode("Mouse")
 
 ^+#!r:: Reload
 F10:: ExitApp
 Numpad0:: Click('R')
 ~Pause:: Suspend(-1)
 
-^NumPadDot::Send !{TAB}
+;Example to move mouse to middle of screen
+;F4::MouseMove(A_ScreenWidth/2,A_ScreenHeight/2,0)               ;Primary
+;F5::Try MonitorGet(2,&L,&T,&R,&B),MouseMove((L+R)/2,(T+B)/2,0)  ;Secondary
 
-NumPadDot:: {
-	MouseMove(760, 760, 0)
-}
-return
+;^NumPadDot::Send(!{TAB})
+
+NumPadDot::MouseMove(760, 760, 0)
 
 KeysToBroadcast := [
     "Numpad1",

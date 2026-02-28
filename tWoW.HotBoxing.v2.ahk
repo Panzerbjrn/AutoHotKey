@@ -16,7 +16,7 @@ Numpad0:: Click('R')
 
 ;^NumPadDot::Send(!{TAB})
 
-NumPadDot::MouseMove(760, 760, 0)
+NumPadDot::MouseMove(1775, 700, 0)
 
 KeysToBroadcast := [
     "Numpad1",

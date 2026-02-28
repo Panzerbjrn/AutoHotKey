@@ -9,6 +9,11 @@ F10:: ExitApp
 Numpad0:: Click('R')
 ~Pause:: Suspend(-1)
 
+^NumPadDot::Send !{TAB}
+NumPadDot::
+MouseMove, 760, 760
+return
+
 KeysToBroadcast := [
     "Numpad1",
     "^Numpad1",

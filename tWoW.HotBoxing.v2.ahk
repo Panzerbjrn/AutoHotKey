@@ -14,9 +14,12 @@ Numpad0:: Click('R')
 ;F4::MouseMove(A_ScreenWidth/2,A_ScreenHeight/2,0)               ;Primary
 ;F5::Try MonitorGet(2,&L,&T,&R,&B),MouseMove((L+R)/2,(T+B)/2,0)  ;Secondary
 
-;^NumPadDot::Send(!{TAB})
+;NumPadDot::MouseMove(1780, 700, 0)
 
-NumPadDot::MouseMove(1780, 750, 0)
+NumPadDot:: {
+	MouseMove(1780, 700, 0)
+	Send "{Alt Down}{Tab}{Alt Up}" ; The Alt+Tab switch
+}
 
 KeysToBroadcast := [
     "Numpad1",

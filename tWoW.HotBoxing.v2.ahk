@@ -16,7 +16,12 @@ Numpad0:: Click('R')
 
 ;^NumPadDot::Send(!{TAB})
 
-NumPadDot::MouseMove(1775, 700, 0)
+;NumPadDot::MouseMove(1775, 700, 0)
+
+NumPadDot::
+MouseMove(1775, 700, 0)
+Send "{Alt Down}{Tab}{Alt Up}" ; The Alt+Tab switch
+return
 
 KeysToBroadcast := [
     "Numpad1",

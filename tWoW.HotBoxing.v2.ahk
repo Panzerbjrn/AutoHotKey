@@ -15,7 +15,7 @@ Numpad0:: Click('R')
 ;F5::Try MonitorGet(2,&L,&T,&R,&B),MouseMove((L+R)/2,(T+B)/2,0)  ;Secondary
 
 NumPadDot:: {
-	MouseMove(1770, 700, 0)
+	MouseMove(1800, 700, 0)
 	Send "{Alt Down}{Tab}{Alt Up}" ; The Alt+Tab switch
 }
 

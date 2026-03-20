@@ -14,10 +14,10 @@ Numpad0:: Click('R')
 ;F4::MouseMove(A_ScreenWidth/2,A_ScreenHeight/2,0)               ;Primary
 ;F5::Try MonitorGet(2,&L,&T,&R,&B),MouseMove((L+R)/2,(T+B)/2,0)  ;Secondary
 
-;NumPadDot:: {
-;	MouseMove(1800, 700, 0)
-;	Send "{Alt Down}{Tab}{Alt Up}" ; The Alt+Tab switch
-;}
+NumPadDot:: {
+	MouseMove(1800, 700, 0)
+	Send "{Alt Down}{Tab}{Alt Up}" ; The Alt+Tab switch
+}
 
 KeysToBroadcast := [
     "Space",
@@ -61,7 +61,11 @@ KeysToBroadcast := [
     "F11",
     "F12"
 ]
-WowIDs := WinGetList("World of Warcraft")
+
+;WowIDs := WinGetList("World of Warcraft")
+
+WoWIDs := WinGetList("ahk_exe Wow.exe")
+
 for k in KeysToBroadcast {
     Hotkey("~*" k, (hk) => GenericBroadcast(hk))
 }
@@ -122,27 +126,22 @@ GenericBroadcast(HotkeyName) {
     }
 }
 
-#HotIf WinActive("ahk_class WowIDs[1]")
-NumPadDot:: {
-	MouseMove(1800, 700, 0)
-	WinActivate WowIDs[2]
-}
 
-#HotIf WinActive("ahk_class WowIDs[2]")
-NumPadDot:: {
-	MouseMove(1800, 700, 0)
-	WinActivate WowIDs[1]
-}
-
-
-#HotIf WinActive("ahk_id WowIDs[1]")
-NumPadDot:: {
-	MouseMove(1800, 700, 0)
-	WinActivate WowIDs[2]
-}
-
-#HotIf WinActive("ahk_id WowIDs[2]")
-NumPadDot:: {
-	MouseMove(1800, 700, 0)
-	WinActivate WowIDs[1]
-}
+;NumPadDot:: {
+;    static Index := 0
+;    ActiveID := WinActive("ahk_exe Wow.exe")
+;    for i, id in WoWIDs {
+;        if (id == ActiveID) {
+;            Index := i
+;            break
+;        }
+;    }
+;    Index := (Index < WoWIDs.Length)
+;        ? Index++
+;        : 1
+;    TargetID := WoWIDs[Index]
+;    if WinExist(TargetID) {
+;        MouseMove(1800, 700, 0)
+;        WinActivate("ahk_id " TargetID)
+;    }
+;}

@@ -121,3 +121,15 @@ GenericBroadcast(HotkeyName) {
         ControlSend(keySequence, , "ahk_id " id)
     }
 }
+
+#If WinActive("ahk_id WoWIDs[1]")
+NumPadDot:: {
+	MouseMove(1800, 700, 0)
+	WinActivate WoWIDs[2]
+}
+
+#If WinActive("ahk_id WoWIDs[2]")
+NumPadDot:: {
+	MouseMove(1800, 700, 0)
+	WinActivate WoWIDs[1]
+}

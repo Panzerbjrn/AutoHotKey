@@ -20,6 +20,7 @@ NumPadDot:: {
 }
 
 KeysToBroadcast := [
+    "Space",
     "Numpad1",
     "Numpad2",
     "Numpad3",
@@ -47,8 +48,6 @@ KeysToBroadcast := [
     "!Numpad7",
     "!Numpad8",
     "!Numpad9",
-    "l",
-    "Space",
     "^F9",
     "^F10",
     "^F11",

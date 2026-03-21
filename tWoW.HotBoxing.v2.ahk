@@ -14,9 +14,14 @@ Numpad0:: Click('R')
 ;F4::MouseMove(A_ScreenWidth/2,A_ScreenHeight/2,0)               ;Primary
 ;F5::Try MonitorGet(2,&L,&T,&R,&B),MouseMove((L+R)/2,(T+B)/2,0)  ;Secondary
 
+;NumPadDot:: {
+;	MouseMove(1800, 700, 0)
+;	Send "{Alt Down}{Tab}{Alt Up}" ; The Alt+Tab switch
+;}
+
 NumPadDot:: {
 	MouseMove(1800, 700, 0)
-	Send "{Alt Down}{Tab}{Alt Up}" ; The Alt+Tab switch
+    WinActivateBottom("ahk_exe Wow.exe")
 }
 
 KeysToBroadcast := [
@@ -125,23 +130,3 @@ GenericBroadcast(HotkeyName) {
         ControlSend(keySequence, , "ahk_id " id)
     }
 }
-
-
-;NumPadDot:: {
-;    static Index := 0
-;    ActiveID := WinActive("ahk_exe Wow.exe")
-;    for i, id in WoWIDs {
-;        if (id == ActiveID) {
-;            Index := i
-;            break
-;        }
-;    }
-;    Index := (Index < WoWIDs.Length)
-;        ? Index++
-;        : 1
-;    TargetID := WoWIDs[Index]
-;    if WinExist(TargetID) {
-;        MouseMove(1800, 700, 0)
-;        WinActivate("ahk_id " TargetID)
-;    }
-;}

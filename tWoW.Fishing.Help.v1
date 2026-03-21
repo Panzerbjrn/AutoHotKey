@@ -1,0 +1,14 @@
+﻿numpad0::
+	Click, Right
+	Sleep 500
+	SEND {numpad3}
+return
+
+NumpadDot::
+	Click, Right
+	Sleep 50
+	Click, Right
+	Sleep 500
+	SEND {Numpad3}
+return
+

@@ -12,3 +12,6 @@ NumpadDot::
 	SEND {Numpad3}
 return
 
+;NumPadDot:: {
+;    WinActivateBottom("ahk_exe Wow.exe")
+;}

@@ -20,7 +20,7 @@ Numpad0:: Click('R')
 ;}
 
 NumPadDot:: {
-	MouseMove(1800, 700, 0)
+	MouseMove(1790, 760, 0)
     WinActivateBottom("ahk_exe Wow.exe")
 }
 

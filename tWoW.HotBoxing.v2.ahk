@@ -10,15 +10,6 @@ F10:: ExitApp
 Numpad0:: Click('R')
 ~Pause:: Suspend(-1)
 
-;Example to move mouse to middle of screen
-;F4::MouseMove(A_ScreenWidth/2,A_ScreenHeight/2,0)               ;Primary
-;F5::Try MonitorGet(2,&L,&T,&R,&B),MouseMove((L+R)/2,(T+B)/2,0)  ;Secondary
-
-;NumPadDot:: {
-;	MouseMove(1800, 700, 0)
-;	Send "{Alt Down}{Tab}{Alt Up}" ; The Alt+Tab switch
-;}
-
 NumPadDot:: {
 	MouseMove(1790, 760, 0)
     WinActivateBottom("ahk_exe Wow.exe")
